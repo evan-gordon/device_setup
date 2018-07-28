@@ -1,0 +1,11 @@
+
+-add startup.sh to user directory, and add to ~/.profile (doesn't work in .bashrc)
+
+-install git, aptitude, tree, vim
+
+run:
+git config --global alias.add-commit '!git add . && git commit'
+
+to use:
+git add-commit -m 'My commit message'
+
