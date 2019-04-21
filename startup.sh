@@ -1,5 +1,7 @@
-# Insert into ~/.profile (doesn't work properly in .bashrc)
-# Also could try ~/.bash_profile?
+# Insert:
+# source ~/startup.sh
+# Into:
+# ~/.bashrc
 
 # Install nitrogen to have different backgrounds on each monitor 
 # Then search 'startup applications'
