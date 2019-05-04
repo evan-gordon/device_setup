@@ -7,6 +7,7 @@
 # Then search 'startup applications'
 # Click add and add the following command:
 #nitrogen --restore
+
 morning="093000" 
 currTime=`date +"%H%M%S"`
 if [[ "$currTime" < "$morning" ]]
@@ -27,6 +28,7 @@ echo "⁽⁽(੭ꐦ •̀Д•́ )੭*⁾⁾ ᑦᵒᔿᵉ ᵒᐢᵎᵎ"
 fi
 
 alias c=clear
+alias dc=docker-compose
 
 function lazygit() { 
   git add . 
