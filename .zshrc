@@ -1,31 +1,25 @@
-nitrogen --restore
-source ~/Documents/startup.sh
+os=$(cat /etc/os-release | grep ID= | sed 's/ID=//')
+if [ $os = "ubuntu" ]; then
+  nitrogen --restore
+fi
+
+source ~/startup.sh
 
 #gopath
 export GOPATH=$HOME/go
 PATH=$PATH:$GOROOT/bin:$GOPATH/bin # Add GOPATH/bin to PATH for scripting
-
-#devtest aliases
-#add specifically for adding inside webtest/aspera-one framework
-gta() {
-  cd ~/Documents/Ruby/aspera-one-platform
-  git add .
-  git reset -- config/environment.yml
-  git reset -- config/testrail.yml
-  git reset -- spec/spec_helper
-}
           
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/egordon/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
+export ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random

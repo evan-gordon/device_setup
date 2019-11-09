@@ -1,29 +1,23 @@
-#for mass install of common packages
-sudo apt install zsh
-sudo apt install update
-sudo apt install upgrade
-sudo apt install tree
-sudo apt install git
-sudo apt install nitrogen
-sudo apt install tmux
-sudo apt install curl
-sudo apt install wget
-#run nitrogen to configure monitors
-sudo apt install vim
-# sudo apt install
+#!/bin/bash
+os=$(cat /etc/os-release | grep ID= | sed 's/ID=//')
 
-#place config file in proper locations
-rm ~/.vimrc
-cp .vimrc ~/.vimrc
-rm ~/.tmux.conf
-cp .tmux.conf ~/.tmux.conf
-
-#change default shell
-chsh -s $(which zsh)
+if [[ $os = "ubuntu" ]]; then
+   echo 'detected os as ubuntu'
+   #for mass install of common packages
+   sudo apt-get update && apt-get upgrade
+   sudo apt install zsh tree git nitrogen tmux curl wget vim
+   #run nitrogen to configure monitors
+elif [[ $os = 'manjaro' ]]; then
+   echo 'detected os as manjaro'
+   sudo pacman -Syu
+   pacman -S zsh tree git tmux curl wget vim
+else
+   echo "os isn't currently configured, exiting."
+   exit
+fi
 
 #install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
 #powerlevel9k
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 
@@ -33,3 +27,16 @@ wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbol
 
 sudo mv PowerlineSymbols.otf /usr/share/fonts/
 sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d
+
+#place config file in proper locations
+rm ~/.startup.sh
+cp startup.sh ~/
+rm ~/.zshrc
+cp .zshrc ~/
+rm ~/.vimrc
+cp .vimrc ~/
+rm ~/.tmux.conf
+cp .tmux.conf ~/
+
+#change default shell
+chsh -s $(which zsh)
