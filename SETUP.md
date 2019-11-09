@@ -2,7 +2,7 @@
 
 * add startup.sh to user directory, and add to ~/.profile (doesn't work in .bashrc)
 
-* install git, tree, vim, zsh, tmux, curl, wget
+* install git, tree, vim, zsh, tmux, curl, wget, neofetch
 
 ## Run
 

@@ -5,12 +5,12 @@ if [[ $os = "ubuntu" ]]; then
    echo 'detected os as ubuntu'
    #for mass install of common packages
    sudo apt-get update && apt-get upgrade
-   sudo apt install zsh tree git nitrogen tmux curl wget vim
+   sudo apt install zsh tree git nitrogen tmux curl wget vim neofetch
    #run nitrogen to configure monitors
 elif [[ $os = 'manjaro' ]]; then
    echo 'detected os as manjaro'
    sudo pacman -Syu
-   pacman -S zsh tree git tmux curl wget vim
+   pacman -S zsh tree git tmux curl wget vim neofetch
 else
    echo "os isn't currently configured, exiting."
    exit

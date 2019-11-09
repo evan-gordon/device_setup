@@ -29,6 +29,7 @@ fi
 
 alias c=clear
 alias dc=docker-compose
+alias os-info=neofetch
 
 function lazygit() { 
   git add . 
